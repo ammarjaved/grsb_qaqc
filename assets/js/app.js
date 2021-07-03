@@ -92,7 +92,7 @@ function updateLayerStatus(geom){
 
   $.ajax({
     url: 'services/updatestatus.php?geom='+geom+'&status='+status,
-    dataType: 'JSON',
+   // dataType: 'JSON',
     //data: data,
     method: 'GET',
     async: false,
