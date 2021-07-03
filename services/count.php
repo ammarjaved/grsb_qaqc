@@ -27,7 +27,7 @@ class Pss extends connection
 
         $sql1="select count (*) from qaqc.poi_data1 ";
 		
-		$sql2 = "SELECT count(*) FROM qaqc.poi_data1  qaqc_status=1 ;";
+		$sql2 = "SELECT count(*) FROM qaqc.poi_data1 where qaqc_status=1 ;";
 
         $sql3 = "SELECT count(*)
                 FROM qaqc.poi_data1 where qaqc_status=0";
