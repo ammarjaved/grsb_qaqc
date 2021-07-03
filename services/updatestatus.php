@@ -19,17 +19,20 @@ class GetAllData extends connection
         }else {
             $sql = "update qaqc.poi_data1 set qaqc_status=1  where st_intersects(geom,st_setsrid(ST_GeomFromGeoJSON ('$geom'),4326))";
         }
-        $output = array();
+        $output ='';
 
         $result_query = pg_query($sql);
         if($result_query)
         {
-            $output = pg_fetch_all($result_query);
+           // $output = pg_fetch_all($result_query);
+            $output= 'success';
+        }else{
+            $output= 'failed';
         }
 
 
         $this->closeConnection();
-        return json_encode($output);
+        return $output;
     }
 
 }

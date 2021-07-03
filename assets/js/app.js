@@ -601,14 +601,14 @@ mukim_daerah = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/GRAB/wms", 
   transparent: true
 }, {buffer: 10});
 //cpoi.addTo(map);
-inpoi = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/GRAB/wms", {
-  layers: 'GRAB:incomplete_data',
+qaqc_poi = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/GRAB/wms", {
+  layers: 'GRAB:qaqc_done',
   format: 'image/png',
   maxZoom: 21,
   zIndex: 10,
   transparent: true
 }, {buffer: 10});
-//inpoi.addTo(map);
+qaqc_poi.addTo(map);
 
 g_10 = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/GRAB/wms", {
   layers: 'GRAB:grid_10',
@@ -683,7 +683,7 @@ setTimeout(function(){
         //"Address": cd,
         // ,
         "complete poi": cpoi,
-       // "incomplete poi": inpoi,
+        "QAQC Done": qaqc_poi,
         "Grid 10X10": g_10
 
 
@@ -708,6 +708,7 @@ setTimeout(function(){
         "Address": cd,
         // ,
         "complete poi": cpoi,
+        "QAQC Done": qaqc_poi,
        // "incomplete poi": inpoi,
        // "Incomplete_boundary":inc_boundary,
         "Grid 10X10": g_10
