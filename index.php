@@ -83,12 +83,14 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
               <li class="hidden-xs" id="ex" style="display: none;"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="showExcelModel()">Export Excel</a></li>
 -->
               <li class="hidden-xs"><a  href="services/logout.php">Logout</a></li>
-              <li class="hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list white"></i>&nbsp;&nbsp;panel View</a></li>
+<!--              <li class="hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list white"></i>&nbsp;&nbsp;panel</a></li>-->
 
               <li class="hidden-xs"><div style="padding-top: 10px;padding-left: 50px;"><spsn style="color:white;">POI Search</spsn>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"  id="typeahead"  name="hec" class="typeahead"/></div></li>>
               <li class="hidden-xs"><button style="margin-top: 10px;margin-left: 20px"  class="btn-success" onclick="search()">Search</button></li>
               <li class="hidden-xs"><div style="padding-top: 10px;padding-left: 50px;"><spsn style="color:white;">POI Id Search</spsn>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"  name="hec1" id="typeahead1" class="typeahead"/></div></li>>
               <li class="hidden-xs"><button style="margin-top: 10px;margin-left: 20px"  class="btn-success" onclick="searchid()">Search</button></li>
+              <li class="hidden-xs"><div style="padding-top: 10px;padding-left: 50px;"><spsn style="color:white;">POI xy Search</spsn>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"  name="search_xy" id="search_xy" class="typeahead"/></div></li>>
+              <li class="hidden-xs"><button style="margin-top: 10px;margin-left: 20px"  class="btn-success" onclick="search_xy()">Search</button></li>
 
 
           </ul>
@@ -105,6 +107,8 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
                     <div class="row">
                         <button class="btn btn-success" style="display: none;" id="asc" onclick="activeSelectedCustomerActual()">Activate Address</button>
                         <button class="btn btn-success" onclick="percentages()">Activate Complete</button>
+                        <button class="btn btn-success" style="padding-top:5px;margin-top: 10px;" onclick="drawRect()">update status</button>
+                        <input type="checkbox" id="qlc"> check make qaqc done/uncheck undo done
                       <!--  <button class="btn btn-success" style="margin-top: 10px;" onclick="incomplete()">Activate Incomplete</button>-->
                     </div>
                 </div>

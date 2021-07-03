@@ -58,6 +58,53 @@ function searchPlaces(){
   }
 
 
+
+  function search_xy(){
+    var arr=[]
+    var xy=$("#search_xy").val();
+    var rs=xy.split(',');
+    arr.push(rs[0]);
+    arr.push(rs[1]);
+    map.setView(arr,18);
+
+  }
+
+  function drawRect() {
+    var polygonDrawer = new L.Draw.Rectangle(map);
+    polygonDrawer.enable();
+  }
+
+$(document).ready(function(){
+  setTimeout(function(){
+    map.on(L.Draw.Event.CREATED, function(event) {
+      var layer = event.layer.toGeoJSON();
+      console.log(layer);
+      updateLayerStatus(JSON.stringify(layer.geometry))
+    });
+  },3000)
+})
+
+function updateLayerStatus(geom){
+  var status=0;
+  if($('#qlc').is(':checked')){
+    status=1
+  }
+
+  $.ajax({
+    url: 'services/updatestatus.php?geom='+geom+'&status='+status,
+    dataType: 'JSON',
+    //data: data,
+    method: 'GET',
+    async: false,
+    success: function callback(data) {
+      // console.log(data);
+
+
+    }
+  });
+
+}
+
 var percent='';
 function percentages() {
   // if(percent!=''){
