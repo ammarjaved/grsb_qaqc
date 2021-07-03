@@ -66,6 +66,7 @@ function searchPlaces(){
     arr.push(rs[0]);
     arr.push(rs[1]);
     map.setView(arr,18);
+    L.marker(arr).addTo(map);
 
   }
 
