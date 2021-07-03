@@ -27,17 +27,10 @@ class Pss extends connection
 
         $sql1="select count (*) from qaqc.poi_data1 ";
 		
-		$sql2 = "SELECT count(*)
-                FROM qaqc.poi_data1 where name is not null and business_type is not null  and
-                street_name is not null and  post_code is not null and state is not null and xy is not null 
-                and area_building_name_neighbourhood is not null and city_name is not null and image_path is not null and
-                grab_street is not null and image_path<>'' and image_path<>'null' ;";
+		$sql2 = "SELECT count(*) FROM qaqc.poi_data1  qaqc_status=1 ;";
 
         $sql3 = "SELECT count(*)
-                FROM qaqc.poi_data1 where name is  null or business_type is null or
-                street_name is  null or  post_code is  null or state is  null or xy is null 
-                or area_building_name_neighbourhood is null or city_name is null or image_path is null or
-                grab_street is null or image_path='' or image_path='null'";
+                FROM qaqc.poi_data1 where qaqc_status=0";
 
         $sql4="SELECT count(*)
                 FROM qaqc.poi_data1 where status='exported'";

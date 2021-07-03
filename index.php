@@ -158,7 +158,7 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
                   </div>
               </div>
 
-              <div class="col-md-4" style="display:none;">
+              <div class="col-md-4">
                   <div class="card">
                       <div class="btn btn-danger">
                           <h5 class="card-title">Incomplete POI</h5>
