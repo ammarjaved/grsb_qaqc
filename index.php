@@ -251,12 +251,15 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
     <script src="assets/jquery.form.js"></script>
     <script src="https://unpkg.com/esri-leaflet@1.0.5"></script>
 
-    <script src="assets/leaflet_draw/src/Leaflet.draw.js"></script>
-    <script src="assets/leaflet_draw/src/Leaflet.Draw.Event.js"></script>
-    <script src="assets/leaflet_draw/src/ext/TouchEvents.js"></script>
-    <script src="assets/leaflet_draw/src/edit/handler/Edit.SimpleShape.js"></script>
-    <script src="assets/leaflet_draw/src/edit/handler/Edit.Marker.js"></script>
-    <script src="assets/leaflet_draw/src/edit/handler/Edit.CircleMarker.js"></script>
+<!--    <script src="assets/leaflet_draw/src/Leaflet.draw.js"></script>-->
+<!--    <script src="assets/leaflet_draw/src/Leaflet.Draw.Event.js"></script>-->
+<!--    <script src="assets/leaflet_draw/src/ext/TouchEvents.js"></script>-->
+<!--    <script src="assets/leaflet_draw/src/edit/handler/Edit.SimpleShape.js"></script>-->
+<!--    <script src="assets/leaflet_draw/src/edit/handler/Edit.Marker.js"></script>-->
+<!--    <script src="assets/leaflet_draw/src/edit/handler/Edit.CircleMarker.js"></script>-->
+<!--    <script src="assets/leaflet_draw/src/edit/handler/Edit.Rectangle.js"></script>-->
+    <link rel="stylesheet" href="resources/draw/leaflet.draw.css"/>
+    <script src="resources/draw/leaflet.draw-custom.js"></script>
 
 
 
