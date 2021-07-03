@@ -98,7 +98,12 @@ function updateLayerStatus(geom){
     async: false,
     success: function callback(data) {
       // console.log(data);
-
+      map.removeLayer(cpoi);
+      map.removeLayer(qaqc_poi);
+      cpoi.setParams({fake: Date.now()}, false);
+      qaqc_poi.setParams({fake: Date.now()}, false);
+      map.addLayer(cpoi);
+      map.addLayer(qaqc_poi);
 
     }
   });
