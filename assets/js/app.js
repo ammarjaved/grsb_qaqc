@@ -105,6 +105,7 @@ function updateLayerStatus(geom){
       qaqc_poi.setParams({fake: Date.now()}, false);
       map.addLayer(cpoi);
       map.addLayer(qaqc_poi);
+      getCountAgain();
 
     }
   });
@@ -956,6 +957,21 @@ $(document).ready(function () {
     //$('#pie_chart').show()
 
   }
+
+ function getCountAgain(){
+   $.ajax({
+     url: "services/count.php",
+     type: "GET",
+     // dataType: "json",
+     // contentType: "application/json; charset=utf-8",
+     success: function callback(response) {
+       $("#tpoi").html(response.count[0].count);
+       $("#cpoi").html(response.complete[0].count);
+       $("#inpoi").html(response.incomplete[0].count);
+     }
+     });
+
+ }
 
   if(user_id=='40'||user_id=='41'||user_id=='42'){
     $('#drp').hide();
