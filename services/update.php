@@ -32,7 +32,7 @@ class Start extends connection
 
 
 
-        $sql_dist="UPDATE qaqc.poi_data SET  name='$poi', business_type='$bt', lot_no='$lot_no',street_name='$st_name', post_code='$p_code', state='$state', area_building_name_neighbourhood='$nh', city_name='$cn', updated_by='$uid',alternative_name='$an',image_path='$img_path',grab_street='$gs' WHERE id=$id;";
+        $sql_dist="UPDATE qaqc.poi_data1 SET  name='$poi', business_type='$bt', lot_no='$lot_no',street_name='$st_name', post_code='$p_code', state='$state', area_building_name_neighbourhood='$nh', city_name='$cn', updated_by='$uid',alternative_name='$an',image_path='$img_path',grab_street='$gs' WHERE id=$id;";
 
        // echo $sql_dist;
         $result_query_dist = pg_query($sql_dist);
