@@ -106,7 +106,7 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
                         <button type="button" class="btn btn-xs btn-default pull-right" id="sidebar-hide-btn"><i class="fa fa-chevron-left"></i></button></h3>
                     <div class="row">
                         <button class="btn btn-success" style="display: none;" id="asc" onclick="activeSelectedCustomerActual()">Activate Address</button>
-                        <button class="btn btn-success" onclick="percentages()">Activate Complete</button>
+                        <button class="btn btn-success" onclick="percentages()">Activate InComplete</button>
                         <button class="btn btn-success" style="padding-top:5px;margin-top: 10px;" onclick="drawRect()">update status</button>
                         <input type="checkbox" id="qlc"> check make qaqc done/uncheck undo done
                       <!--  <button class="btn btn-success" style="margin-top: 10px;" onclick="incomplete()">Activate Incomplete</button>-->
