@@ -4,6 +4,7 @@ var customer;
 var searchlayer='null';
 var selectedCustomerId='';
 var highlight = L.geoJson(null);
+var myclickgeom='1';
 var highlightStyle = {
   stroke: false,
   fillColor: "#00FFFF",
@@ -228,7 +229,7 @@ function percentages() {
               content=content+"<tr><td><button class='btn btn-success' onclick='updateRec()'>update</button></td><td><button class='btn btn-danger' onclick='deleteRec()'>Delete</button></td></tr>";
 
             }
-
+           content=content+"<tr><th>geom</th><td>" + "<input type=\'text\' class=\'form-control\' value=\'\' id=\'geo\' name=\'geo\'/>" + "</td></tr>";
            content=content+ "</table>";
         ;
         // layer.on({
@@ -242,6 +243,7 @@ function percentages() {
         $("#street_name1").val(data.features[0].properties.street_name)
         $("#gs1").val(data.features[0].properties.grab_street)
         $("#nh1").val(data.features[0].properties.area_building_name_neighbourhood)
+        $("#geo").val(myclickgeom)
 
             highlight.clearLayers().addLayer(L.circleMarker([data.features[0].geometry.coordinates[1], data.features[0].geometry.coordinates[0]], highlightStyle));
         //
@@ -271,6 +273,17 @@ function percentages() {
 function replaceAppos(val){
   var rs= val.replace(/'|\\'/g, "\\'");
   return rs;
+}
+
+function getClickXy(){
+  map.off('click');
+  map.on('click', function(e) {
+    var lat = e.latlng.lat;
+    var lon = e.latlng.lng;
+
+     myclickgeom = '{"type":"Point","coordinates":[' + lon + ',' + lat + ']}';
+    activeSelectedLayerPano()
+  })
 }
 
 //var incom='';
@@ -404,6 +417,7 @@ function incomplete() {
         $("#nh1").val(data.features[0].properties.area_building_name_neighbourhood)
 
 
+
                highlight.clearLayers().addLayer(L.circleMarker([data.features[0].geometry.coordinates[1], data.features[0].geometry.coordinates[0]], highlightStyle));
   //
   //         }
@@ -474,8 +488,10 @@ function updateRec(){
   var id=$("#id1").val()
   var an=$("#an1").val()
   var img_path=$("#img_path1").val()
+  var geom=$("#geo").val()
+
   $.ajax({
-    url: "services/update.php?poi="+poi+'&bt='+bt+'&lot_no='+lot_no+'&id='+id+'&st_name='+st_name+'&p_code='+post_code+'&state='+state+'&nh='+nh+'&cn='+cn+'&uid='+user_id+'&an='+an+'&img_path='+img_path+'&gs='+gs,
+    url: "services/update.php?poi="+poi+'&bt='+bt+'&lot_no='+lot_no+'&id='+id+'&st_name='+st_name+'&p_code='+post_code+'&state='+state+'&nh='+nh+'&cn='+cn+'&uid='+user_id+'&an='+an+'&img_path='+img_path+'&gs='+gs+'&geom='+geom,
     type: "GET",
     // dataType: "json",
     // contentType: "application/json; charset=utf-8",
