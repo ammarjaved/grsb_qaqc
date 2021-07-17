@@ -23,7 +23,7 @@ class Start extends connection
 
 
 
-        $sql_dist="delete from poi_data where id=$id";
+        $sql_dist="delete from qaqc.poi_data1 where id='$id'";
 
        // echo $sql_dist;
         $result_query_dist = pg_query($sql_dist);

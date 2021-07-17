@@ -281,7 +281,7 @@ function getClickXy(){
     var lat = e.latlng.lat;
     var lon = e.latlng.lng;
 
-     myclickgeom = '{"type":"Point","coordinates":[' + lon + ',' + lat + ']}';
+     myclickgeom = 'POINT(' + lon + ' ' + lat + ')';
     activeSelectedLayerPano()
   })
 }
@@ -505,6 +505,7 @@ function updateRec(){
       map.addLayer(inpoi);
       $('#featureModal').modal('toggle');
       highlight.clearLayers()
+	  myclickgeom='1';
     }
   });
 }
