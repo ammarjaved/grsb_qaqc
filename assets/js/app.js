@@ -634,6 +634,15 @@ qaqc_poi = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/GRAB/wms", {
 }, {buffer: 10});
 qaqc_poi.addTo(map);
 
+sub_data = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/GRAB/wms", {
+  layers: 'GRAB:submitted_data',
+  format: 'image/png',
+  maxZoom: 21,
+  zIndex: 10,
+  transparent: true
+}, {buffer: 10});
+sub_data.addTo(map);
+
 g_10 = L.tileLayer.wms("http://121.121.232.54:7090/geoserver/GRAB/wms", {
   layers: 'GRAB:grid_10',
   format: 'image/png',
@@ -706,7 +715,8 @@ setTimeout(function(){
         // "Customers":grab_customer,
         //"Address": cd,
         // ,
-        "complete poi": cpoi,
+        "incomplete poi": cpoi,
+        "submitted data":sub_data,
         "QAQC Done": qaqc_poi,
         "Grid 10X10": g_10
 
@@ -731,8 +741,9 @@ setTimeout(function(){
         // "Customers":grab_customer,
         "Address": cd,
         // ,
-        "complete poi": cpoi,
+        "incomplete poi": cpoi,
         "QAQC Done": qaqc_poi,
+        "submitted data":sub_data,
        // "incomplete poi": inpoi,
        // "Incomplete_boundary":inc_boundary,
         "Grid 10X10": g_10
@@ -985,6 +996,7 @@ $(document).ready(function () {
        $("#tpoi").html(response.count[0].count);
        $("#cpoi").html(response.complete[0].count);
        $("#inpoi").html(response.incomplete[0].count);
+       $("#subpoi1").html(response.exported[0].count);
      }
      });
 
@@ -1018,6 +1030,7 @@ $(document).ready(function () {
      $("#tpoi").html(response.count[0].count);
       $("#cpoi").html(response.complete[0].count);
       $("#inpoi").html(response.incomplete[0].count);
+      $("#subpoi1").html(response.exported[0].count);
       var total_count=((parseInt(response.count[0].count))/700000)*100
       var complete=((parseInt(response.complete[0].count))/700000)*100
       var incomplete=((parseInt(response.incomplete[0].count))/700000)*100

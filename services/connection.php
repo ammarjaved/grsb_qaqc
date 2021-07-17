@@ -1,7 +1,7 @@
 <?php
 class Connection
 {
-    public $hostname = 'localhost';
+    public $hostname = '121.121.232.54';
     public $port        = 5433;
     //public $port        = 5432;
     public $database    = 'db_grab';

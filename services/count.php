@@ -33,7 +33,7 @@ class Pss extends connection
                 FROM qaqc.poi_data1 where qaqc_status=0";
 
         $sql4="SELECT count(*)
-                FROM qaqc.poi_data1 where status='exported'";
+                FROM qaqc.poi_data1 where qaqc_status='2'";
 
 
         $result_query1 = pg_query($sql1);
@@ -50,10 +50,10 @@ class Pss extends connection
             $output['incomplete']= pg_fetch_all($result_query3);
         }
 
-       /* $result_query4= pg_query($sql4);
+        $result_query4= pg_query($sql4);
         if ($result_query4) {
             $output['exported']= pg_fetch_all($result_query4);
-        }*/
+        }
 
 
 

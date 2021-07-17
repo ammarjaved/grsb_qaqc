@@ -143,7 +143,7 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
 
       <div id="map" style="z-index: 1">
           <div style="z-index: 1000000;position: absolute;padding-left: 100px;"  class="row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                   <div class="card">
                       <div class="btn btn-info">
                           <h5 class="card-title">Total POI</h5>
@@ -151,7 +151,7 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
                       </div>
                   </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                   <div class="card">
                       <div class="btn btn-success">
                           <h5 class="card-title">Complete POI</h5>
@@ -160,11 +160,20 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
                   </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                   <div class="card">
                       <div class="btn btn-danger">
                           <h5 class="card-title">Incomplete POI</h5>
                           <p class="card-text" id="inpoi" style="text-align: center;">00</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-3">
+                  <div class="card">
+                      <div style="background-color:purple" class="btn btn-warning">
+                          <h5 class="card-title">Submitted POI</h5>
+                          <p class="card-text" id="subpoi1" style="text-align: center;">00</p>
                       </div>
                   </div>
               </div>
