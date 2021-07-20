@@ -15,9 +15,9 @@ class GetAllData extends connection
         $status=$_GET['status'];
 
         if($status==0){
-            $sql = "update qaqc.poi_data1 set qaqc_status=0  where st_intersects(geom,st_setsrid(ST_GeomFromGeoJSON ('$geom'),4326))";
+            $sql = "update qaqc.poi_data1 set qaqc_status=0  where st_intersects(geom,st_setsrid(ST_GeomFromGeoJSON ('$geom'),4326)) and qaqc_status<>2";
         }else {
-            $sql = "update qaqc.poi_data1 set qaqc_status=1  where st_intersects(geom,st_setsrid(ST_GeomFromGeoJSON ('$geom'),4326))";
+            $sql = "update qaqc.poi_data1 set qaqc_status=1  where st_intersects(geom,st_setsrid(ST_GeomFromGeoJSON ('$geom'),4326)) and qaqc_status<>2";
         }
         $output ='';
 
