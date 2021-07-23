@@ -275,6 +275,74 @@ function replaceAppos(val){
   return rs;
 }
 
+function activateMe(val){
+  //alert(val)
+  if(val=='incomplete'){
+    percentages();
+  }else if(val=='address'){
+    activeSelectedCustomerActual();
+  }else if(val=='complete'){
+    activeOther('complete');
+  }else if(val=='submitted'){
+    activeOther('submitted');
+  }
+
+}
+
+
+function activeOther(val) {
+
+
+
+  map.off('click');
+  map.on('click', function(e) {
+    //map.off('click');
+    var ln='';
+    if(val=='complete'){
+      ln=qaqc_poi;
+    }else if(val=='submitted'){
+      ln=sub_data
+    }
+
+    // Build the URL for a GetFeatureInfo
+
+    var url = getFeatureInfoUrl(
+        map,
+        ln,
+        e.latlng,
+        {
+          'info_format': 'application/json',
+          'propertyName': 'NAME,AREA_CODE,DESCRIPTIO'
+        }
+    );
+    $.ajax({
+      url: 'services/proxy.php?url='+encodeURIComponent(url),
+      dataType: 'JSON',
+      //data: data,
+      method: 'GET',
+      async: false,
+      success: function callback(data) {
+        if (data.features[0].properties ) {
+          var str='<table>';
+          for(var prop in data.features[0].properties){
+            str=str+'<tr><td>'+prop+'</td><td>'+data.features[0].properties[prop]+'</td></tr>'
+          }
+          str=str+'</table>';
+          $("#feature-info").html(str);
+          $("#featureModal").modal("show");
+        }
+
+        activeSelectedLayerPano()
+      }
+    });
+
+
+
+
+  });
+}
+
+
 function getClickXy(){
   map.off('click');
   map.on('click', function(e) {

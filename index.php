@@ -105,8 +105,16 @@ header("Location:" . $loc . "/grab_qaqc/login.php");
                     <h3 class="panel-title">
                         <button type="button" class="btn btn-xs btn-default pull-right" id="sidebar-hide-btn"><i class="fa fa-chevron-left"></i></button></h3>
                     <div class="row">
-                        <button class="btn btn-success" style="display: none;" id="asc" onclick="activeSelectedCustomerActual()">Activate Address</button>
-                        <button class="btn btn-success" onclick="percentages()">Activate InComplete</button>
+<!--                        <button class="btn btn-success" style="display: none;" id="asc" onclick="activeSelectedCustomerActual()">Activate Address</button>-->
+<!--                        <button class="btn btn-success" onclick="percentages()">Activate InComplete</button>-->
+                        <select onchange="activateMe(this.value)">
+                            <option value="">Select Layer To Activate</option>
+                            <option value="address">Activate Address</option>
+                            <option value="incomplete">Activate InComplete</option>
+                            <option value="complete">Activate Complete</option>
+                            <option value="submitted">Activate Submited</option>
+                        </select>
+<!--                        <button class="btn btn-success" onclick="activateMe()">Activate</button>-->
                         <button class="btn btn-success" onclick="getClickXy()">Get Map XY</button>
 
                         <button class="btn btn-success" style="padding-top:5px;margin-top: 10px;" onclick="drawRect()">update status</button>
