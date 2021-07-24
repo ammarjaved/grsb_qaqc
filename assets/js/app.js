@@ -323,7 +323,7 @@ function activeOther(val) {
       async: false,
       success: function callback(data) {
         if (data.features[0].properties ) {
-          var str='<table>';
+          var str='<table class="table table-bordered">';
           for(var prop in data.features[0].properties){
             str=str+'<tr><td>'+prop+'</td><td>'+data.features[0].properties[prop]+'</td></tr>'
           }
